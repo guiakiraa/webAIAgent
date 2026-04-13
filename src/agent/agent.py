@@ -1,9 +1,5 @@
 import json
 import re
-from langchain_openai import ChatOpenAI
-from langchain.agents import AgentExecutor, create_openai_tools_agent
-from langchain.prompts import ChatPromptTemplate, MessagesPlaceholder
-from langchain_core.messages import HumanMessage, AIMessage
 
 from src.browser.browser import BrowserManager
 from src.browser.actions import BrowserActions

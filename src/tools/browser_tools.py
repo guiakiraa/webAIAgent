@@ -1,4 +1,4 @@
-from langchain.tools import tool
+from langchain_core.tools import tool
 from src.browser.actions import BrowserActions
 
 def create_browser_tools(actions: BrowserActions):
