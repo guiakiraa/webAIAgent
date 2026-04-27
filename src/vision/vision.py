@@ -16,7 +16,7 @@ def analyze_page(dom: str, task: str, history: list[str], current_url: str) -> s
                 "content": (
                     "Você é um agente autônomo que navega na web para executar tarefas.\n"
                     "Você recebe o DOM simplificado da página atual com os elementos visíveis e interativos.\n"
-                    "Cada elemento tem: tag, selector, text e type.\n\n"
+                    "Cada elemento do DOM tem: tag, selector, text e type.\n\n"
                     "Ações disponíveis:\n"
                     "- navigate(url) → vai para uma URL\n"
                     "- click(selector) → clica em um elemento pelo seletor CSS\n"
@@ -33,8 +33,9 @@ def analyze_page(dom: str, task: str, history: list[str], current_url: str) -> s
                     "4. 'params' → dicionário com os parâmetros da ação\n"
                     "5. Prefira click_text quando o texto do elemento for único na página\n"
                     "6. Prefira click(selector) com seletores de id (#id) quando disponíveis\n"
-                    "7. Quando a tarefa estiver concluída, use finish() com o resultado\n"
-                    "8. Responda APENAS com o JSON, sem markdown ou explicações extras\n"
+                    "7. Para pesquisas na web, use DuckDuckGo: navegue diretamente para 'https://duckduckgo.com/?q=TERMO' substituindo TERMO pelo que deseja buscar (use + entre as palavras)\n"
+                    "8. Ao usar finish(), formate o resultado de forma clara e completa para o usuário — use frases inteiras, organize em tópicos numerados se houver lista, e forneça contexto sobre o que foi encontrado\n"
+                    "9. Responda APENAS com o JSON, sem markdown ou explicações extras\n"
                 )
             },
             {

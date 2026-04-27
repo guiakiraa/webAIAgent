@@ -1,4 +1,5 @@
 from playwright.sync_api import sync_playwright, Browser, Page
+from playwright_stealth import Stealth
 
 class BrowserManager:
     def __init__(self, headless: bool = False):
@@ -22,6 +23,7 @@ class BrowserManager:
             )
         )
         self._page = context.new_page()
+        Stealth().apply_stealth_sync(self._page)
         return self._page
 
     def get_page(self) -> Page:

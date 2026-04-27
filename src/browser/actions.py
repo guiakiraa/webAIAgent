@@ -36,6 +36,8 @@ class BrowserActions:
     def type_text(self, selector: str, text: str) -> str:
         try:
             self.page.wait_for_selector(selector, timeout=5000)
+            self.page.click(selector)
+            self.page.wait_for_timeout(300)
             self.page.fill(selector, text)
             return f"Digitou '{text}' em: {selector}"
         except Exception as e:
@@ -55,6 +57,7 @@ class BrowserActions:
         return f"Rolou a página para {direction}"
 
     def get_simplified_dom(self) -> str:
+        self.page.wait_for_load_state("domcontentloaded")
         dom = self.page.evaluate("""() => {
             const TAGS = ['a', 'button', 'input', 'textarea', 'select',
                           'h1', 'h2', 'h3', 'p', 'span', 'li', 'label'];
@@ -72,7 +75,8 @@ class BrowserActions:
             }
 
             function getText(el) {
-                return (el.innerText || el.value || el.placeholder || '')
+                return (el.innerText || el.value || el.placeholder ||
+                        el.getAttribute('title') || el.getAttribute('aria-label') || '')
                     .trim()
                     .slice(0, 80);
             }
