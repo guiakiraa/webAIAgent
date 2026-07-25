@@ -2,7 +2,7 @@ import sys
 from src.agent.agent import WebAgent
 
 EXAMPLES = [
-    "Pesquise por 'LangChain agents' no Google e retorne os 3 primeiros títulos",
+    "Pesquise por 'LangChain agents' e retorne os 3 primeiros títulos",
     "Entre em wikipedia.org e pesquise por 'Inteligência Artificial'",
     "Vá para github.com/trending e me diga quais são os 5 repositórios em alta hoje",
     "Entre em quotes.toscrape.com e me retorne as 3 primeiras citações",
